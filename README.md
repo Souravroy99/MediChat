@@ -3,7 +3,7 @@
 An AI-powered medical chatbot built with **Next.js**, **Google Gemini**, and **Firebase** that helps users understand their symptoms by generating possible medical conditions, severity assessments, personalized recommendations, and concise health summaries through an interactive conversational interface.
 
 ### 🌐 Live Demo
-👉 https://your-live-link.vercel.app
+👉 https://medi-chat-ten.vercel.app
 
 ---
 
@@ -110,7 +110,6 @@ Cloud Firestore stores:
 - Tailwind CSS
 - ShadCN UI
 - React Hook Form
-- Zod
 
 ## 🧠 AI
 
@@ -198,7 +197,7 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 
-GEMINI_API_KEY=
+GROQ_API_KEY=
 ```
 
 ### Start the development server
