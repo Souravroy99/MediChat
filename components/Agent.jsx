@@ -174,7 +174,7 @@ const Agent = ({ userName, userId }) => {
           <div className='transcript'>
             <p
               key={latestMessage}
-              className='transition-opacity duration-500 opacity-0 animate-fadeIn opacity-100'
+              className='transition-opacity duration-500 animate-fadeIn opacity-100'
             >
               {latestMessage}
             </p>
