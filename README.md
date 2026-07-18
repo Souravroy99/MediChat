@@ -1,121 +1,102 @@
+# 🩺 MediChat
 
-# 🚀 AI-Powered Interview Platform
+An AI-powered medical chatbot built with **Next.js**, **Google Gemini**, and **Firebase** that helps users understand their symptoms by generating possible medical conditions, severity assessments, personalized recommendations, and concise health summaries through an interactive conversational interface.
 
-An intelligent, real-time, voice-based interview simulator built with **Next.js**, **Vapi**, **Google Gemini**, and **Firebase**.
-This platform allows users to practice interviews using **human-like voice agents**, receive **live feedback**, and get **AI-generated evaluations** with detailed scoring.
-
-Live link:
-👉 [https://ai-powered-interview-platform-new.vercel.app/](https://ai-powered-interview-platform-new.vercel.app/)
-
+### 🌐 Live Demo
+👉 https://your-live-link.vercel.app
 
 ---
 
-## 🧠 Why This Project?
+# 🧠 Why MediChat?
 
-Traditional mock interview tools rely on text.
-This platform is different — it provides:
+Many people search online for medical information but often receive scattered or unreliable results. MediChat provides a conversational AI experience that helps users better understand their symptoms while keeping all conversations securely stored for future reference.
 
-* **Real-time voice conversation**
-* **AI-driven dynamic questioning**
-* **Gemini-powered reasoning & feedback**
-* **Detailed scoring + improvement tips**
-* **Full interview transcript & session history**
-
-A fully interactive **AI interviewer** that feels like a real interview.
+> **Disclaimer:** MediChat is intended for informational purposes only and should not replace professional medical advice, diagnosis, or treatment.
 
 ---
 
 # 🌟 Features
 
-### 🎤 **Real-Time Voice Interviews**
+### 🤖 AI-Powered Symptom Analysis
 
-* Powered by **Vapi Voice Agents**
-* STT (Speech → Text)
-* TTS (Text → Speech)
-* Natural conversational flow
+- Analyze user-reported symptoms using Google Gemini
+- Generate possible medical conditions
+- Assess symptom severity
+- Provide personalized health recommendations
+- Generate concise medical summaries
 
-### 🤖 **AI-Powered Interviewer (Google Gemini)**
+### 💬 Interactive Medical Chat
 
-* Generates contextual follow-up questions
-* Evaluates user responses
-* Produces structured feedback
-* Scores based on multiple criteria
-* Provides strengths + improvement areas
+- Natural conversational interface
+- Context-aware AI responses
+- Persistent chat history
+- Seamless multi-session conversations
 
-### 📊 **Post-Interview Analytics**
+### 🔐 Secure Authentication
 
-* Total score (0–100)
-* Category-wise breakdown:
+- Firebase Authentication
+- Email & Password Sign-In
+- Secure server-side session management
 
-  * Communication
-  * Technical Knowledge
-  * Problem Solving
-  * Cultural Fit
-  * Confidence
+### 💾 Persistent Data Storage
 
-### 🔐 **User Authentication**
+Cloud Firestore stores:
 
-* Firebase Auth (Email login)
+- Chat history
+- Medical summaries
+- AI recommendations
+- Severity assessments
+- User information
 
-### 💾 **Cloud Storage**
+### 🖥️ Modern User Interface
 
-* Firestore → saves:
-
-  * Interviews
-  * Transcripts
-  * Feedback
-  * Scores
-  * Analytics
-
-### 🖥️ **Clean UI**
-
-* Built with **Next.js 14**, **Tailwind CSS**, **ShadCN**
-* Fully responsive
-* Smooth animations via **Framer Motion**
+- Built with Next.js App Router
+- Responsive UI
+- Tailwind CSS
+- ShadCN UI
+- React Hook Form + Zod Validation
 
 ---
 
-# 🏛️ Architecture Overview
+# 🏛️ System Architecture
 
-Below is the full flow of how the system works:
+### 1. User enters symptoms
 
-### **1. User speaks into the mic**
+User → MediChat Interface
 
-Browser → Vapi AI Agent
+↓
 
-### **2. Vapi performs Speech-to-Text**
+### 2. Request sent to backend
 
-User audio → Text transcript
+Next.js Server Actions
 
-### **3. Transcript sent to Backend**
+↓
 
-Next.js server action receives transcript
+### 3. Google Gemini analyzes symptoms
 
-### **4. Backend sends prompt to Google Gemini**
+Generates:
 
-Gemini does:
+- Possible conditions
+- Severity assessment
+- Personalized recommendations
+- Medical summary
 
-* Question generation
-* Conversation logic
-* Scoring
-* Evaluation
+↓
 
-### **5. Gemini returns text response**
+### 4. Response returned to user
 
-Backend → Vapi
+AI-generated medical guidance displayed in chat
 
-### **6. Vapi converts text → speech**
+↓
 
-TTS creates natural voice response
+### 5. Conversation stored
 
-### **7. Firebase stores data**
+Cloud Firestore stores:
 
-Firestore stores:
-
-* Transcript
-* Score
-* Feedback
-* Session history
+- User chats
+- AI responses
+- Medical summaries
+- Recommendations
 
 ---
 
@@ -123,146 +104,115 @@ Firestore stores:
 
 ## 🎨 Frontend
 
-* **Next.js 14 (App Router)**
-* **React**
-* **TypeScript**
-* **Tailwind CSS**
-* **ShadCN UI**
-* **React Hook Form + Zod**
+- Next.js 15 (App Router)
+- React
+- JavaScript
+- Tailwind CSS
+- ShadCN UI
+- React Hook Form
+- Zod
 
-## 🧠 AI & Voice Layer
+## 🧠 AI
 
-* **Google Gemini 2.0 Flash**
-* **Vapi.ai Voice Agents**
-
-  * STT (Speech → Text)
-  * TTS (Text → Speech)
-  * Voice pipeline streaming
+- Google Gemini
 
 ## 🔥 Backend
 
-* **Next.js Server Actions (`"use server"`)**
-* **Firebase Admin SDK**
-* **AI SDK (`ai` library)**
+- Next.js Server Actions
+- Firebase Admin SDK
 
-## 🗄️ Database + Authentication
+## 🗄️ Database & Authentication
 
-* **Firebase Firestore**
-* **Firebase Auth**
-* **Firebase Storage**
+- Firebase Firestore
+- Firebase Authentication
 
 ## ☁️ Deployment
 
-* **Vercel**
+- Vercel
 
 ---
 
-# 🗂️ Project Structure
+# 📂 Project Structure
 
-```
-AI-Powered-Interview-Platform/
+```text
+MediChat/
 │
 ├── app/
 │   ├── (auth)/
-│   │   ├── layout.tsx
-│   │   └── sign-in/page.tsx
-│   │
-│   ├── (dashboard)/
-│   │   ├── layout.tsx
-│   │   ├── dashboard/page.tsx
-│   │   └── previous-interviews/page.tsx
-│   │
-│   ├── (home)/
-│   │   └── page.tsx
-│   │
-│   ├── (interview)/
-│   │   ├── [id]/page.tsx
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   │
-│   ├── favicon.ico
-│   ├── globals.css
-│   └── layout.tsx
+│   ├── (root)/
+│   ├── interview/
+│   ├── api/
+│   └── layout.js
 │
 ├── components/
-│   ├── charts/
-│   ├── dashboard/
-│   ├── interview/
 │   ├── ui/
-│   ├── Footer.tsx
-│   └── Navbar.tsx
-│
-├── constants/
-│   ├── index.ts
-│   └── feedbackSchema.ts
+│   ├── AuthForm.jsx
+│   ├── ChatCard.jsx
+│   └── ...
 │
 ├── firebase/
-│   ├── admin.ts          ← Server-side Firebase Admin SDK
-│   └── config.ts         ← Client-side Firebase config
+│   ├── admin.js
+│   └── client.js
 │
 ├── lib/
-│   ├── auth.ts
-│   ├── utils.ts
-│   └── stripe.ts (if exists)
+│   ├── actions/
+│   └── utils.js
 │
 ├── public/
-│   ├── logo.png
-│   ├── icons/
-│   └── images/
 │
-├── types/
-│   ├── index.ts
-│   └── interview.types.ts
-│
-├── .env.local.example
-├── .eslintrc.json
-├── .gitignore
-├── next.config.mjs
+├── .env.local
 ├── package.json
-├── postcss.config.js
-├── README.md
-└── tailwind.config.ts
+└── README.md
 ```
-
-* **Server actions** handle AI evaluation & database operations
-* **Firebase** stores all interview data
-* **Vapi** manages voice agent interactions
 
 ---
 
 # 🚀 Getting Started
 
-### 1. Clone the repo
+### Clone the repository
 
 ```bash
-git clone https://github.com/Souravroy99/AI-Powered-Interview-Platform
-cd AI-Powered-Interview-Platform
+git clone https://github.com/Souravroy99/MediChat.git
+cd MediChat
 ```
 
-### 2. Install dependencies
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Add environment variables
+### Configure Environment Variables
 
-Create `.env.local`:
+Create a `.env.local` file:
 
-```
+```env
 FIREBASE_PROJECT_ID=
 FIREBASE_CLIENT_EMAIL=
 FIREBASE_PRIVATE_KEY=
+
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
 GEMINI_API_KEY=
-VAPI_API_KEY=
 ```
 
-### 4. Run app
+### Start the development server
 
 ```bash
 npm run dev
 ```
-"# A-Lightweight-Medical-Support-Chatbot-for-Symptom-Guidance-and-Basic-Health-Recommendations" 
-"# A-Lightweight-Medical-Support-Chatbot-for-Symptom-Guidance-and-Basic-Health-Recommendations" 
-"# A-Lightweight-Medical-Support-Chatbot-for-Symptom-Guidance-and-Basic-Health-Recommendations" 
-"# MediChat" 
+
+---
+
+# 📌 Disclaimer
+
+MediChat provides AI-generated health information for educational and informational purposes only. It is **not** a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical concerns.
+
+---
+
+# ⭐ If you found this project helpful, consider giving it a star!
